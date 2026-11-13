@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="pe.edu.vallegrande.clinica.controller.PacienteController">
+    <top>
+        <VBox spacing="4" style="-fx-background-color:#123F52; -fx-padding:18;">
+            <Label text="DentalCare  |  Gestión de Pacientes" textFill="WHITE">
+                <font><Font size="23" /></font>
+            </Label>
+        </VBox>
+    </top>
+    <center>
+        <VBox spacing="12" style="-fx-padding:18; -fx-background-color:#F5F8FA;">
+            <Label text="Datos del paciente" style="-fx-font-weight:bold; -fx-font-size:17px;" />
+            <GridPane hgap="12" vgap="10">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="50" />
+                    <ColumnConstraints percentWidth="50" />
+                </columnConstraints>
+                <Label text="Nombres" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                <Label text="Apellidos" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                <TextField fx:id="txtNombres" promptText="Nombres" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                <TextField fx:id="txtApellidos" promptText="Apellidos" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                <Label text="DNI" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                <Label text="Teléfono" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                <TextField fx:id="txtDni" promptText="8 dígitos" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                <TextField fx:id="txtTelefono" promptText="Número de contacto" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+                <Label text="Correo" GridPane.rowIndex="4" GridPane.columnIndex="0" />
+                <Label text="Fecha de registro" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+                <TextField fx:id="txtCorreo" promptText="correo@ejemplo.com" GridPane.rowIndex="5" GridPane.columnIndex="0" />
+                <DatePicker fx:id="fechaRegistro" maxWidth="Infinity" GridPane.rowIndex="5" GridPane.columnIndex="1" />
+            </GridPane>
+            <Label text="Observaciones" />
+            <TextArea fx:id="txtObservaciones" prefRowCount="2" wrapText="true" promptText="Observaciones del paciente (opcional)" />
+            <HBox spacing="10">
+                <Button text="Registrar" onAction="#registrar" style="-fx-background-color:#177A63; -fx-text-fill:white;" />
+                <Button text="Actualizar" onAction="#actualizar" style="-fx-background-color:#4C4ED9;-fx-text-fill:white;"/>
+                <Button text="Eliminar" onAction="#eliminar" style="-fx-background-color:#F24222;-fx-text-fill:white;" />
+                <Button text="Limpiar" onAction="#limpiar" style="-fx-background-color:#EDED13;-fx-text-fill:white;"/>
+                <Button text="Consultar / Recargar" onAction="#cargar" />
+            </HBox>
+            <Label text="Listado de pacientes" style="-fx-font-weight:bold; -fx-font-size:17px;" />
+            <TableView fx:id="tablaPacientes" VBox.vgrow="ALWAYS" prefHeight="250">
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" prefWidth="45" />
+                    <TableColumn fx:id="colNombres" text="Nombres" prefWidth="130" />
+                    <TableColumn fx:id="colApellidos" text="Apellidos" prefWidth="125" />
+                    <TableColumn fx:id="colDni" text="DNI" prefWidth="85" />
+                    <TableColumn fx:id="colTelefono" text="Teléfono" prefWidth="105" />
+                    <TableColumn fx:id="colCorreo" text="Correo" prefWidth="145" />
+                    <TableColumn fx:id="colFecha" text="Fecha" prefWidth="95" />
+                    <TableColumn fx:id="colObservaciones" text="Observaciones" prefWidth="175" />
+                </columns>
+            </TableView>
+            <Label fx:id="lblEstado" text="Verificando conexión..." style="-fx-text-fill:#177A63;" />
+        </VBox>
+    </center>
+</BorderPane>
